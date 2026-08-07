@@ -10,8 +10,8 @@
          beStrictAboutOutputDuringTests="true"
 >
     <testsuites>
-        <testsuite name="Unit">
-            <directory>tests/unit</directory>
+        <testsuite name="default">
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 
