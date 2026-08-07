@@ -1,0 +1,15 @@
+parameters:
+    level: 9
+    scanDirectories:
+        - dev-stubs
+    paths:
+        - src
+    excludePaths:
+        - tests
+        - vendor
+
+    # Ignore dev stubs since they're just for IDE completion
+    ignoreErrors:
+        - '#Class .* is in a namespace that is not covered by your `scanDirectories`#'
+
+    reportUnmatchedIgnoredErrors: false

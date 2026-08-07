@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd"
+         name="Phlix Mystic Jade"
+>
+    <description>Mystic Jade theme plugin coding standards</description>
+
+    <file>src</file>
+    <file>tests</file>
+
+    <!-- PSR-12 -->
+    <rule ref="PSR12"/>
+
+    <!-- Array standards -->
+    <rule ref="Squiz.Arrays.ArrayDeclaration"/>
+
+    <!-- Control structures -->
+    <rule ref="Squiz.ControlStructures.ControlSignature"/>
+
+    <!-- Functions -->
+    <rule ref="Squiz.Functions.FunctionDeclaration"/>
+    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing"/>
+
+    <!-- Classes -->
+    <rule ref="Squiz.Classes.ClassDeclaration"/>
+    <rule ref="Squiz.Classes.ClassDeclarationOpeningBrace"/>
+
+    <!-- Naming conventions -->
+    <rule ref="Squiz.NamingConventions.ValidVariableName"/>
+    <rule ref="Squiz.NamingConventions.ValidFunctionName"/>
+    <rule ref="Squiz.NamingConventions.ValidClassName"/>
+
+    <!-- Use statements -->
+    <rule ref="PSR12.UseStatements"/>
+
+    <!-- Scope -->
+    <rule ref="Squiz.Scope.MethodScope"/>
+
+    <!-- Whitespace -->
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
+    <rule ref="Squiz.WhiteSpace.SuperglobalSpacing"/>
+
+    <!-- Ignore dev-stubs -->
+    <exclude-pattern>dev-stubs/</exclude-pattern>
+</ruleset>
