@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Phlix\MysticJade\Tests;
 
-use MysticJade\MysticJadePlugin;
+use Phlix\MysticJade\MysticJadePlugin;
 use Phlix\Shared\Plugin\LifecycleInterface;
 use Phlix\Theming\ThemeSourceInterface;
 use PHPUnit\Framework\TestCase;
