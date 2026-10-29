@@ -87,7 +87,7 @@ final class MysticJadePlugin implements LifecycleInterface, ThemeSourceInterface
                     '--accent-active' => '#14b8a6',
                     '--accent-soft' => 'rgba(45, 212, 191, 0.12)',
                     '--accent-ring' => 'rgba(45, 212, 191, 0.45)',
-                    '--accent-text' => '#042f2e',
+                    '--accent-text' => '#5eead4',
 
                     // Background + elevation stack
                     '--bg' => '#030a08',
