@@ -100,7 +100,7 @@ final class MysticJadePlugin implements LifecycleInterface, ThemeSourceInterface
                     // Text ramp
                     '--text' => '#e8f5f0',
                     '--text-muted' => '#9cb8ac',
-                    '--text-subtle' => '#5c7a6e',
+                    '--text-subtle' => '#779889',
                     '--text-faint' => '#334d43',
                     '--text-on-accent' => '#02100d',
 

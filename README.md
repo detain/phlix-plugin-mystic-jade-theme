@@ -30,7 +30,7 @@ composer require detain/phlix-plugin-mystic-jade-theme
 |-------|-----|-------|
 | `--text` | `#e8f5f0` | Primary text |
 | `--text-muted` | `#9cb8ac` | Secondary text |
-| `--text-subtle` | `#5c7a6e` | Tertiary text |
+| `--text-subtle` | `#779889` | Tertiary text |
 | `--text-faint` | `#334d43` | Disabled/hint text |
 
 ### Border Colors
