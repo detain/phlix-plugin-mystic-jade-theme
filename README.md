@@ -51,6 +51,12 @@ composer require detain/phlix-plugin-mystic-jade-theme
 
 ## Theme Tokens
 
+The payload is the single source of truth in
+[`MysticJadePlugin::providedThemes()`](src/MysticJadePlugin.php) — a theme
+envelope (`id` / `name` / `dark` / `extends`) plus 28 CSS custom properties,
+names keeping their `--` prefix on the wire. The colour tokens and their exact
+values are tabled above; a trimmed sketch of the real shape:
+
 ```json
 {
   "id": "mystic-jade",
@@ -58,16 +64,17 @@ composer require detain/phlix-plugin-mystic-jade-theme
   "dark": true,
   "extends": "midnight",
   "tokens": {
-    "accent": "#2dd4bf",
-    "bg": "#030a08",
-    "surface": "#071210",
-    "surface-2": "#0e1f18",
-    "surface-3": "#152b22",
-    "text": "#e8f5f0",
-    "border": "#1a3028"
+    "--accent": "#2dd4bf",
+    "--accent-text": "#5eead4",
+    "--bg": "#030a08",
+    "--text-on-accent": "#02100d"
   }
 }
 ```
+
+The `--accent-*` ramp carries one teal hue. `--accent-text` is an
+accent-tinted foreground for text sitting on the dark surfaces — the text
+colour for chips filled with solid `--accent` is `--text-on-accent`.
 
 ## Requirements
 

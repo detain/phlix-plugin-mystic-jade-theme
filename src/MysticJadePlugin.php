@@ -81,7 +81,10 @@ final class MysticJadePlugin implements LifecycleInterface, ThemeSourceInterface
                 'dark' => true,
                 'extends' => 'midnight',
                 'tokens' => [
-                    // Accent ramp — luminous jade/teal
+                    // Accent ramp — one teal hue family. `--accent-text` is the
+                    // foreground that sits on the dark elevated surfaces (an
+                    // accent-tinted text colour); text placed on top of a solid
+                    // `--accent` fill uses `--text-on-accent` instead.
                     '--accent' => '#2dd4bf',
                     '--accent-hover' => '#5eead4',
                     '--accent-active' => '#14b8a6',
@@ -114,7 +117,7 @@ final class MysticJadePlugin implements LifecycleInterface, ThemeSourceInterface
                     '--vignette' => 'rgba(0, 8, 5, 0.5)',
                     '--ambient' => 'rgba(45, 212, 191, 0.15)',
 
-                    // Legacy `--color-*` aliases — the nine that the shipped SPA still reads
+                    // Legacy `--color-*` aliases — only the ones the shipped SPA still reads
                     '--color-bg' => '#030a08',
                     '--color-surface' => '#071210',
                     '--color-text' => '#e8f5f0',
