@@ -1,10 +1,14 @@
 # Mystic Jade Theme for Phlix
 
-A deep emerald UI-theme for Phlix with luminous teal accents.
+A near-black cool-green UI-theme for Phlix with bright teal accents.
 
 ## Overview
 
-Mystic Jade extends the built-in `midnight` base with a rich emerald and luminous teal palette. The theme evokes an enchanted forest atmosphere with deep greens, glowing jade accents, and subtle atmospheric effects.
+Mystic Jade extends the built-in `midnight` base with near-black cool-green
+grounds (`#030a08` up through the elevation stack) and a bright teal accent
+ramp led by `#2dd4bf`. The name is mood, not hue: where Jade's own accent is
+jade-green (`#50c878`), Mystic Jade runs teal on darker grounds, with the
+same quiet grain, vignette and ambient atmosphere.
 
 ## Installation
 
@@ -41,7 +45,7 @@ the plugin loader manages its own per-plugin vendor directory.
 | `--surface` | `#071210` | Card/panel backgrounds |
 | `--surface-2` | `#0e1f18` | Elevated surfaces |
 | `--surface-3` | `#152b22` | Highest elevation |
-| `--accent` | `#2dd4bf` | Primary accent (jade/teal) |
+| `--accent` | `#2dd4bf` | Primary accent (teal-400) |
 
 ### Text Colors
 

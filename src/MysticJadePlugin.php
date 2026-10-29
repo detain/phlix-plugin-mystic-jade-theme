@@ -16,12 +16,13 @@ use Phlix\Theming\ThemeSourceInterface;
 use Psr\Container\ContainerInterface;
 
 /**
- * Mystic Jade — a deep emerald ui-theme for Phlix.
+ * Mystic Jade — a near-black cool-green ui-theme for Phlix.
  *
- * A single-theme plugin that extends the built-in `midnight` base with a rich
- * emerald and luminous teal palette. The theme evokes an enchanted forest
- * atmosphere with deep greens, glowing jade accents, and subtle atmospheric
- * effects.
+ * A single-theme plugin that extends the built-in `midnight` base with
+ * near-black cool-green grounds and a bright teal accent ramp (led by
+ * `#2dd4bf`). The name is mood, not hue: where Jade's accent is jade-green
+ * (`#50c878`), this theme runs teal on darker grounds, with quiet grain,
+ * vignette and ambient atmosphere.
  *
  * @package Phlix\MysticJade
  * @since 1.0.0

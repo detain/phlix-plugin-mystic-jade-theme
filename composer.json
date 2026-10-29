@@ -1,9 +1,9 @@
 {
     "name": "detain/phlix-plugin-mystic-jade-theme",
     "type": "phlix-plugin",
-    "description": "Mystic Jade — a deep emerald ui-theme for Phlix with luminous teal accents.",
+    "description": "Mystic Jade — a near-black cool-green ui-theme for Phlix with bright teal accents.",
     "license": "MIT",
-    "keywords": ["phlix", "phlix-plugin", "ui-theme", "theme", "mystic-jade", "emerald", "teal", "dark-theme"],
+    "keywords": ["phlix", "phlix-plugin", "ui-theme", "theme", "mystic-jade", "teal", "dark-theme"],
     "homepage": "https://github.com/detain/phlix-plugin-mystic-jade-theme",
     "require": {
         "php": ">=8.3",
