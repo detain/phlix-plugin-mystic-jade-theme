@@ -8,9 +8,28 @@ Mystic Jade extends the built-in `midnight` base with a rich emerald and luminou
 
 ## Installation
 
+Install and enable are **two separate actions**: installing only stages the
+plugin's code on disk — the theme appears in the picker only after it is
+enabled.
+
+**Admin UI** — *Admin → Plugins* (`/app/admin/plugins`), find **Mystic Jade**,
+press **Install**, then flip its switch to enable it. The page posts this
+repository's URL to `POST /api/v1/admin/plugins/install` and the server
+supplies the catalog pin (exact `ref` + `artifactSha256`) itself; without a
+catalog entry the install is refused outright — deliberate default-deny.
+
+**CLI** — the same thing, from the server root. Pass the **repository URL**,
+not the plugin name: the installer downloads from that string verbatim, and a
+bare name is not downloadable.
+
 ```bash
-composer require detain/phlix-plugin-mystic-jade-theme
+php bin/phlix plugin:install https://github.com/detain/phlix-plugin-mystic-jade-theme
+php bin/phlix plugin:enable  phlix-plugin-mystic-jade-theme
+php bin/phlix plugin:list
 ```
+
+`composer require` into the host checkout is not the supported install path —
+the plugin loader manages its own per-plugin vendor directory.
 
 ## Color Palette
 
