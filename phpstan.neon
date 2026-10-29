@@ -1,15 +1,12 @@
 parameters:
     level: 9
-    scanDirectories:
-        - dev-stubs
     paths:
         - src
-    excludePaths:
         - tests
-        - vendor
-
-    # Ignore dev stubs since they're just for IDE completion
-    ignoreErrors:
-        - '#Class .* is in a namespace that is not covered by your `scanDirectories`#'
-
-    reportUnmatchedIgnoredErrors: false
+    # `Phlix\Theming\ThemeSourceInterface` is declared by the HOST server, not by
+    # any Composer dependency, so PHPStan cannot find it in `vendor/`. It must be
+    # INTRODUCED (scanDirectories), not overridden (stubFiles) — `stubFiles` only
+    # replaces the definition of a symbol PHPStan can already resolve, so for a
+    # genuinely unfindable symbol it is silently useless.
+    scanDirectories:
+        - dev-stubs

@@ -37,7 +37,9 @@ final class MysticJadePluginTest extends TestCase
     {
         $themes = $this->plugin->providedThemes();
 
-        $this->assertIsArray($themes);
+        // The outer list shape is guaranteed by the declared return type — a
+        // runtime is_array() here could never fail. The contract that matters
+        // is the payload structure asserted below.
         $this->assertCount(1, $themes);
 
         $theme = $themes[0];
@@ -77,19 +79,24 @@ final class MysticJadePluginTest extends TestCase
         $container = $this->createMock(\Psr\Container\ContainerInterface::class);
 
         $this->plugin->onEnable($container);
-        $this->assertTrue(true); // Assertion confirms no exception thrown
+
+        // Real postcondition, not a tautology: enabling is a no-op on a resident
+        // worker and must leave the registered theme payload intact.
+        $this->assertCount(1, $this->plugin->providedThemes());
     }
 
     public function testOnDisableDoesNotThrow(): void
     {
         $this->plugin->onDisable();
-        $this->assertTrue(true); // Assertion confirms no exception thrown
+
+        // Disabling must leave the source's identity intact so a later
+        // re-enable can still resolve it — observable, unlike a tautology.
+        $this->assertSame('mystic-jade', $this->plugin->themeSourceName());
     }
 
     public function testSubscribedEventsReturnsEmptyArray(): void
     {
         $events = $this->plugin->subscribedEvents();
-        $this->assertIsArray($events);
         $this->assertEmpty($events);
     }
 }
