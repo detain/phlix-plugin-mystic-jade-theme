@@ -1,6 +1,6 @@
 # Mystic Jade Theme for Phlix
 
-A near-black cool-green UI-theme for Phlix with bright teal accents.
+A near-black cool-green UI theme for Phlix with bright teal accents.
 
 ## Overview
 
@@ -45,7 +45,19 @@ the plugin loader manages its own per-plugin vendor directory.
 | `--surface` | `#071210` | Card/panel backgrounds |
 | `--surface-2` | `#0e1f18` | Elevated surfaces |
 | `--surface-3` | `#152b22` | Highest elevation |
+| `--surface-glass` | `rgba(7, 18, 16, 0.65)` | Translucent frosted surfaces (overlays) |
+| `--surface-glass-strong` | `rgba(3, 10, 8, 0.85)` | Opaque-tier glass (docks, auth card, player panels) |
 | `--accent` | `#2dd4bf` | Primary accent (teal-400) |
+
+### Accent Variants
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--accent-hover` | `#5eead4` | Hover state accent |
+| `--accent-active` | `#14b8a6` | Active/pressed state |
+| `--accent-soft` | `rgba(45, 212, 191, 0.12)` | Soft accent-tinted fills |
+| `--accent-ring` | `rgba(45, 212, 191, 0.6)` | Focus ring color |
+| `--accent-text` | `#5eead4` | Accent-tinted foreground text on the dark surfaces |
 
 ### Text Colors
 
@@ -55,6 +67,7 @@ the plugin loader manages its own per-plugin vendor directory.
 | `--text-muted` | `#9cb8ac` | Secondary text |
 | `--text-subtle` | `#779889` | Tertiary text |
 | `--text-faint` | `#668277` | Disabled/hint text (placeholder ink — AA-pinned, see `tests/TokenContrastTest.php`) |
+| `--text-on-accent` | `#02100d` | Dark ink drawn on solid `--accent` fills (buttons, badges) |
 
 ### Border Colors
 
@@ -72,12 +85,27 @@ the plugin loader manages its own per-plugin vendor directory.
 | `--vignette` | `rgba(0, 8, 5, 0.5)` | Edge darkening |
 | `--grain-opacity` | `0.035` | Film grain effect |
 
+### Legacy `--color-*` Aliases
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--color-bg` | `#030a08` | Legacy alias — mirrors `--bg` |
+| `--color-surface` | `#071210` | Legacy alias — mirrors `--surface` |
+| `--color-text` | `#e8f5f0` | Legacy alias — mirrors `--text` |
+| `--color-text-muted` | `#9cb8ac` | Legacy alias — mirrors `--text-muted` |
+| `--color-border` | `#1a3028` | Legacy alias — mirrors `--border` |
+
+`phlix-tokens/src/css/colors.css` declares every `--color-*` name as a
+`var(--modern-token)` indirection inside each theme block, so these explicit
+values are belt-and-braces for un-migrated `var(--color-*)` readers rather
+than a second cascade layer.
+
 ## Theme Tokens
 
 The payload is the single source of truth in
 [`MysticJadePlugin::providedThemes()`](src/MysticJadePlugin.php) — a theme
 envelope (`id` / `name` / `dark` / `extends`) plus 28 CSS custom properties,
-names keeping their `--` prefix on the wire. The colour tokens and their exact
+names keeping their `--` prefix on the wire. All 28 tokens and their exact
 values are tabled above; a trimmed sketch of the real shape:
 
 ```json

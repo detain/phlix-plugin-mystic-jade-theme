@@ -31,6 +31,10 @@ final class MysticJadePlugin implements LifecycleInterface, ThemeSourceInterface
 {
     /**
      * Canonical provenance key for this source.
+     *
+     * The host keys the registry's provenance map on this, so re-enabling
+     * REPLACES this plugin's themes instead of duplicating them, and disabling
+     * removes exactly this id. Keep it constant across versions.
      */
     public const SOURCE_NAME = 'mystic-jade';
 
