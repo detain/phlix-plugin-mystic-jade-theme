@@ -54,7 +54,7 @@ the plugin loader manages its own per-plugin vendor directory.
 | `--text` | `#e8f5f0` | Primary text |
 | `--text-muted` | `#9cb8ac` | Secondary text |
 | `--text-subtle` | `#779889` | Tertiary text |
-| `--text-faint` | `#334d43` | Disabled/hint text |
+| `--text-faint` | `#668277` | Disabled/hint text (placeholder ink — AA-pinned, see `tests/TokenContrastTest.php`) |
 
 ### Border Colors
 

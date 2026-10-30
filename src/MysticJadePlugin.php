@@ -105,7 +105,7 @@ final class MysticJadePlugin implements LifecycleInterface, ThemeSourceInterface
                     '--text' => '#e8f5f0',
                     '--text-muted' => '#9cb8ac',
                     '--text-subtle' => '#779889',
-                    '--text-faint' => '#334d43',
+                    '--text-faint' => '#668277',
                     '--text-on-accent' => '#02100d',
 
                     // Borders

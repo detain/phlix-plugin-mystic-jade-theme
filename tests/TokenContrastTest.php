@@ -37,12 +37,22 @@ use RuntimeException;
  *    bg/surface/surface-2/surface-3; the cure #779889 reaches 6.32/6.02/
  *    5.41/4.74, plus the translucent input ground below.
  *
- * The `--text-faint` tier is deliberately NOT floor-lawed here: at #334d43
- * it measures 2.07–2.17 on these grounds — below every WCAG floor, the same
- * dim-faint family situation the estate review registered as a separate,
- * owner-gated cohort finding (see R-THEME-OBSIDIAN-FLAME-01 lineage). Curing
- * its value is that finding's job; this file only pins that the ramp order
- * the M2 cure must preserve stays intact (faint < subtle < muted).
+ * The `--text-faint` tier is floor-lawed here as of W-min136 item 07: the ui
+ * binds it as the AuthField `::placeholder` color (plus the OAuth-divider
+ * caption and SyncPlayModal placeholders), and placeholder text is NOT a
+ * disabled control — so it is AA-bound (>= 4.5:1) on the grounds it actually
+ * paints: the auth page bg, the card surface, and the translucent login
+ * input. Review theme-mystic-jade__webux m1 measured the old #334d43 at
+ * 2.07-2.17 on the opaque stack (2.10 on the input composite); the cure
+ * #668277 reaches 4.78/4.56/4.62 on those three grounds, worst pair first,
+ * and stays strictly below the `--text-subtle` cure in luminance (0.20122
+ * vs 0.28185), preserving the ramp the port-era law pinned (faint < subtle
+ * < muted). The topmost elevations carry no faint text in the shipped flows,
+ * and the disabled-control reading of the tier is WCAG 1.4.3-exempt outright
+ * — the same three-ground scoping jade shipped in its reviewed faint cure
+ * (phlix-plugin-jade-theme 0e3b3dc), which this cure follows. The estate-wide
+ * dim-faint cohort finding (R-THEME-OBSIDIAN-FLAME-01 lineage) stays open
+ * per theme; this theme cured itself rather than wait, again as jade did.
  *
  * Values are parsed from providedThemes() so the law follows the palette;
  * it is not a duplicated constant table. The WCAG math is recomputed here
@@ -50,10 +60,11 @@ use RuntimeException;
  *
  * Ported from the family reference phlix-plugin-arctic-jade-theme /
  * phlix-plugin-volcanic-ember-theme shape (reviewed SHIP twins: the same
- * three webux cures, the same four laws) with the jade canonical file's
- * INPUT_SURFACE_ALPHA ground, per the r2 repair brief naming jade's
- * providedThemes()-parsed, strict-parseHex, mutation-toothed form as the
- * cohort standard.
+ * three webux cures, the same four laws; W-min136 item 07 added the fifth
+ * law — faint's own AA floor — per jade's reviewed 0e3b3dc cure) with the
+ * jade canonical file's INPUT_SURFACE_ALPHA ground, per the r2 repair brief
+ * naming jade's providedThemes()-parsed, strict-parseHex, mutation-toothed
+ * form as the cohort standard.
  */
 #[CoversClass(MysticJadePlugin::class)]
 final class TokenContrastTest extends TestCase
@@ -170,6 +181,47 @@ final class TokenContrastTest extends TestCase
                 $ratio,
                 sprintf(
                     '--text-subtle %s on %s (%s) is %.2f:1 — below the 4.5:1 AA floor',
+                    $ink,
+                    $name,
+                    $ground,
+                    $ratio
+                )
+            );
+        }
+    }
+
+    #[Test]
+    public function testTextFaintMeetsAaAsPlaceholderInkOnTheAuthGrounds(): void
+    {
+        $tokens = $this->tokens();
+        $ink = $tokens['--text-faint'];
+        // W-min136 item 07 (review theme-mystic-jade__webux m1) measured
+        // faint at 2.17/2.07 on exactly these grounds: the auth page bg,
+        // the card surface, and the translucent login input where the ui
+        // binds --text-faint as the AuthField ::placeholder color (plus
+        // the LoginForm/SignupForm "OR" divider caption and the
+        // SyncPlayModal placeholder, all painted on this stack). The
+        // topmost elevations carry no faint text in the shipped flows,
+        // and the disabled-control reading of this tier is WCAG
+        // 1.4.3-exempt outright — the same three-ground scoping jade's
+        // reviewed cure (0e3b3dc) ships.
+        $graded = [
+            '--bg' => $tokens['--bg'],
+            '--surface' => $tokens['--surface'],
+            'input composite' => $this->composite(
+                $tokens['--surface'],
+                self::INPUT_SURFACE_ALPHA,
+                $tokens['--bg']
+            ),
+        ];
+
+        foreach ($graded as $name => $ground) {
+            $ratio = $this->contrastRatio($ink, $ground);
+            $this->assertGreaterThanOrEqual(
+                self::AA_TEXT_RATIO,
+                $ratio,
+                sprintf(
+                    '--text-faint %s on %s (%s) is %.2f:1 — below the 4.5:1 AA floor',
                     $ink,
                     $name,
                     $ground,
