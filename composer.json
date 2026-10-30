@@ -33,6 +33,7 @@
         "sort-packages": true
     },
     "scripts": {
+        "test": "vendor/bin/phpunit",
         "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon",
         "phpcs": "vendor/bin/phpcs --standard=phpcs.xml"
     }

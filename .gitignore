@@ -3,7 +3,12 @@
 
 # Composer
 composer.phar
-composer.lock
+# NOTE: composer.lock is deliberately NOT ignored here — this repo commits
+# it by S440 law (8a4d343; tests/SecurityAuditCheckTest.php's
+# testTheCommittedLockExists asserts it, and the whole audit gate is built
+# on the pinned lock). The pre-S440 scaffold carried an ignore line for it:
+# the known family contradiction — it would make future legitimate lock
+# updates unstageable without -f. Kept out on purpose, not an oversight.
 
 # IDE
 .idea/
