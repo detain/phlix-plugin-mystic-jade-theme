@@ -18,7 +18,11 @@ namespace Phlix\Theming;
  * `detain/phlix-shared` — it is declared by the host server at
  * `src/Theming/ThemeSourceInterface.php` and is on the classpath only inside a
  * running Phlix server. Composer therefore cannot supply it, so the plugin's
- * own suite and its PHPStan run need this minimal, byte-compatible copy.
+ * own suite and its PHPStan run need this signature-compatible copy: method
+ * names, parameters and return types match the host definition, while the
+ * host's contract prose (the provenance-key law, the `themeSourceName()`-
+ * vs-`getName()` rationale, the `@since 0.44.0` tags) deliberately stays in
+ * the host file — this stub mirrors shape, not commentary.
  *
  * `tests/bootstrap.php` loads it only when the real interface is absent, and
  * `phpstan.neon` picks it up through `scanDirectories` (which INTRODUCES a

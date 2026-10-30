@@ -77,7 +77,7 @@ final class MysticJadePlugin implements LifecycleInterface, ThemeSourceInterface
     {
         return [
             [
-                'id' => 'mystic-jade',
+                'id' => self::SOURCE_NAME,
                 'name' => 'Mystic Jade',
                 'dark' => true,
                 'extends' => 'midnight',
