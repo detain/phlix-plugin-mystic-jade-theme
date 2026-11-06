@@ -8,7 +8,8 @@ Mystic Jade extends the built-in `midnight` base with near-black cool-green
 grounds (`#030a08` up through the elevation stack) and a bright teal accent
 ramp led by `#2dd4bf`. The name is mood, not hue: where Jade's own accent is
 jade-green (`#50c878`), Mystic Jade runs teal on darker grounds, with the
-same quiet grain, vignette and ambient atmosphere.
+same quiet grain (both `0.035`) and a vignette and ambient glow re-tuned to
+the teal hue.
 
 ## Installation
 
@@ -20,7 +21,9 @@ enabled.
 press **Install**, then flip its switch to enable it. The page posts this
 repository's URL to `POST /api/v1/admin/plugins/install` and the server
 supplies the catalog pin (exact `ref` + `artifactSha256`) itself; without a
-catalog entry the install is refused outright — deliberate default-deny.
+catalog entry the install is refused outright — deliberate default-deny, with
+the operator escape hatch `PHLIX_PLUGINS_ALLOW_UNVERIFIED=1` (phlix-server
+`PluginLoader::ALLOW_UNVERIFIED_ENV`).
 
 **CLI** — the same thing, from the server root. Pass the **repository URL**,
 not the plugin name: the installer downloads from that string verbatim, and a
@@ -125,7 +128,7 @@ values are tabled above; a trimmed sketch of the real shape:
 
 The `--accent-*` ramp carries one teal hue. `--accent-text` is an
 accent-tinted foreground for text sitting on the dark surfaces — the text
-colour for chips filled with solid `--accent` is `--text-on-accent`.
+color for chips filled with solid `--accent` is `--text-on-accent`.
 
 ## Requirements
 

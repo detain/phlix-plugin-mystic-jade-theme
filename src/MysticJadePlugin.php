@@ -88,7 +88,7 @@ final class MysticJadePlugin implements LifecycleInterface, ThemeSourceInterface
                 'tokens' => [
                     // Accent ramp — one teal hue family. `--accent-text` is the
                     // foreground that sits on the dark elevated surfaces (an
-                    // accent-tinted text colour); text placed on top of a solid
+                    // accent-tinted text color); text placed on top of a solid
                     // `--accent` fill uses `--text-on-accent` instead.
                     '--accent' => '#2dd4bf',
                     '--accent-hover' => '#5eead4',
