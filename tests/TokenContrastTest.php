@@ -30,19 +30,24 @@ use RuntimeException;
  *    to — the full adjacency matrix, not just the same-ground state change.
  *    Review M3 measured the old α=0.45 at 2.79–2.92 same-ground (failing);
  *    α=0.6 passes the strict full matrix, worst pair 3.25.
- *  - `--text-subtle` carries form placeholders and hints (ui Input.vue
- *    `::placeholder`, Combobox, CommandPalette, labels/metadata) — body-text
+ *  - `--text-subtle` carries form placeholders and hints — the ui binds it
+ *    as the `::placeholder` color on Input.vue:92, Combobox.vue:199 and
+ *    AuthField.vue:125 — plus labels/metadata; body-text
  *    tier, so it must reach AA (>= 4.5:1) on every ground too. Review M2
  *    measured the old #5c7a6e at 4.25/4.05/3.64/3.19 on
  *    bg/surface/surface-2/surface-3; the cure #779889 reaches 6.32/6.02/
  *    5.41/4.74, plus the translucent input ground below.
  *
  * The `--text-faint` tier is floor-lawed here as of W-min136 item 07: the ui
- * binds it as the AuthField `::placeholder` color (plus the OAuth-divider
- * caption and SyncPlayModal placeholders), and placeholder text is NOT a
- * disabled control — so it is AA-bound (>= 4.5:1) on the grounds it actually
- * paints: the auth page bg, the card surface, and the translucent login
- * input. Review theme-mystic-jade__webux m1 measured the old #334d43 at
+ * binds it as the SyncPlayModal `::placeholder` color (plus the
+ * CommandPalette placeholder and the plain "OR" divider captions of
+ * LoginForm/SignupForm — carrier sites measured 2026-11-06 at phlix-ui
+ * eb9e991cba50517e74e4c54a609c441df5b707d8; the AuthField placeholder cited
+ * by the original draft belongs to `--text-subtle`), and placeholder text is
+ * NOT a disabled control — so it is AA-bound (>= 4.5:1) on the grounds it
+ * actually paints: the auth page bg, the card surface, and the translucent
+ * input (both its own 80% fill and AuthField's composite to the same
+ * ground). Review theme-mystic-jade__webux m1 measured the old #334d43 at
  * 2.07-2.17 on the opaque stack (2.10 on the input composite); the cure
  * #668277 reaches 4.78/4.56/4.62 on those three grounds, worst pair first,
  * and stays strictly below the `--text-subtle` cure in luminance (0.20122
@@ -83,7 +88,8 @@ final class TokenContrastTest extends TestCase
      * ground is `--surface` composited onto `--bg` at this alpha. The value
      * is read from the shipped ui source (phlix-ui
      * src/components/auth/AuthField.vue: `.authfield__input { background:
-     * color-mix(in srgb, var(--surface) 80%, transparent) }`), not assumed.
+     * color-mix(in srgb, var(--surface) 80%, transparent) }`, and the
+     * SyncPlayModal input fills identically), not assumed.
      */
     private const INPUT_SURFACE_ALPHA = 0.8;
 
@@ -197,10 +203,11 @@ final class TokenContrastTest extends TestCase
         $ink = $tokens['--text-faint'];
         // W-min136 item 07 (review theme-mystic-jade__webux m1) measured
         // faint at 2.17/2.07 on exactly these grounds: the auth page bg,
-        // the card surface, and the translucent login input where the ui
-        // binds --text-faint as the AuthField ::placeholder color (plus
-        // the LoginForm/SignupForm "OR" divider caption and the
-        // SyncPlayModal placeholder, all painted on this stack). The
+        // the card surface, and the translucent input where the ui binds
+        // --text-faint as the SyncPlayModal ::placeholder color (plus the
+        // CommandPalette placeholder and the LoginForm/SignupForm "OR"
+        // divider captions, all painted on this stack; AuthField's own
+        // placeholder belongs to --text-subtle). The
         // topmost elevations carry no faint text in the shipped flows,
         // and the disabled-control reading of this tier is WCAG
         // 1.4.3-exempt outright — the same three-ground scoping jade's
