@@ -5,8 +5,10 @@ parameters:
         - tests
         # The S440 gate script ships fully typed; level-9-clean was measured
         # (W-min137 item 05) with zero ignores, so the auditor can no longer
-        # rot unchecked. bright-line: the script itself stays byte-frozen
-        # family template (md5-ident to jade's modulo the repo name).
+        # rot unchecked. bright-line: the script itself stays a byte-frozen
+        # family template — byte-ident to the jade-family copies (jade and
+        # arctic-jade) modulo the single per-repo `@package` line; the md5s
+        # differ by that one line, so identity is proven by diff, not hash.
         - scripts
     # `Phlix\Theming\ThemeSourceInterface` is declared by the HOST server, not by
     # any Composer dependency, so PHPStan cannot find it in `vendor/`. It must be
