@@ -49,15 +49,17 @@ use RuntimeException;
  * input (both its own 80% fill and AuthField's composite to the same
  * ground). Review theme-mystic-jade__webux m1 measured the old #334d43 at
  * 2.07-2.17 on the opaque stack (2.10 on the input composite); the cure
- * #668277 reaches 4.78/4.56/4.62 on those three grounds, worst pair first,
- * and stays strictly below the `--text-subtle` cure in luminance (0.20122
- * vs 0.28185), preserving the ramp the port-era law pinned (faint < subtle
- * < muted). The topmost elevations carry no faint text in the shipped flows,
- * and the disabled-control reading of the tier is WCAG 1.4.3-exempt outright
- * — the same three-ground scoping jade shipped in its reviewed faint cure
- * (phlix-plugin-jade-theme 0e3b3dc), which this cure follows. The estate-wide
- * dim-faint cohort finding (R-THEME-OBSIDIAN-FLAME-01 lineage) stays open
- * per theme; this theme cured itself rather than wait, again as jade did.
+ * #668277 reaches 4.78/4.56/4.62 on those three grounds, listed in ground
+ * order (bg / card surface / input composite; the worst pair is the card
+ * surface at 4.56), and stays strictly below the `--text-subtle` cure in
+ * luminance (0.20122 vs 0.28185), preserving the ramp the port-era law
+ * pinned (faint < subtle < muted). The topmost elevations carry no faint
+ * text in the shipped flows, and the disabled-control reading of the tier is
+ * WCAG 1.4.3-exempt outright — the same three-ground scoping jade shipped in
+ * its reviewed faint cure (phlix-plugin-jade-theme 0e3b3dc), which this cure
+ * follows. The estate-wide dim-faint cohort finding
+ * (R-THEME-OBSIDIAN-FLAME-01 lineage) stays open per theme; this theme cured
+ * itself rather than wait, again as jade did.
  *
  * Values are parsed from providedThemes() so the law follows the palette;
  * it is not a duplicated constant table. The WCAG math is recomputed here

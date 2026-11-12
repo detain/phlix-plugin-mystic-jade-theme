@@ -90,6 +90,11 @@ final class MysticJadePlugin implements LifecycleInterface, ThemeSourceInterface
                     // foreground that sits on the dark elevated surfaces (an
                     // accent-tinted text color); text placed on top of a solid
                     // `--accent` fill uses `--text-on-accent` instead.
+                    // `--accent-hover` and `--accent-text` intentionally share
+                    // #5eead4 (the ramp's light step): hover brightens toward
+                    // the same tint accent text already reads in. The alias is
+                    // deliberate, not a copy-paste slip — any retune of either
+                    // literal is a theme-value move and owner-gated.
                     '--accent' => '#2dd4bf',
                     '--accent-hover' => '#5eead4',
                     '--accent-active' => '#14b8a6',
