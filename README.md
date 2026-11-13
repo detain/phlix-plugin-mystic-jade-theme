@@ -162,7 +162,7 @@ and checked under PSR-12 (two sniffs are scoped off for `scripts/` only —
 the reasons are pinned in `phpcs.xml`; the script itself is a byte-frozen
 family template).
 
-`tests/bootstrap.php` loads `dev-stubs/LifecycleInterface.php` and `dev-stubs/ThemeSourceInterface.php` only when the real host contracts are absent, so the suite runs outside a Phlix server checkout. `.github/workflows/test.yml` runs the same three checks on PHP 8.3 and 8.4, plus the S440 dependency-audit leg (`composer-audit` job — `php scripts/security-audit-check.php`, locked down by `tests/SecurityAuditCheckTest.php`).
+`tests/bootstrap.php` loads `dev-stubs/LifecycleInterface.php` and `dev-stubs/ThemeSourceInterface.php` only when the real host contracts are absent, so the suite runs outside a Phlix server checkout. `.github/workflows/test.yml` runs the same three checks on PHP 8.3, 8.4 and 8.5, plus the S440 dependency-audit leg (`composer-audit` job — `php scripts/security-audit-check.php`, locked down by `tests/SecurityAuditCheckTest.php`).
 
 ## License
 
